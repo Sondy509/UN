@@ -1,0 +1,254 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+header{
+    background-color: green;
+}
+
+.top-nav {
+    max-width: 100vw;
+    height: 70px;
+    margin: auto;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.top-nav h1 {
+    color: white;
+    font-size: 2.4rem;
+    font-weight: 900;
+}
+
+.top-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.top-nav ul li {
+    position: relative;
+}
+
+.top-nav a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 12px;
+    display: block;
+    font-weight: 500;
+    transition: 0.3s, color 0.3s;
+}
+
+.top-nav a:hover {
+    background: rgba(255,255,255,0.25);
+    color: black;
+    border-radius: 4px;
+}
+
+main {
+    margin-top: 70px; /* espace pour le header fixe */
+}
+
+#section1 {
+    position: relative;
+    bottom: 70px;
+    width: 100%;
+    height: 70vh;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 1.1);
+}
+
+#section2 {
+    margin-bottom: 150px;
+    overflow: hidden; /* nettoie les float */
+    position: relative;
+    bottom: 45px;
+}
+
+
+/* Slideshow */
+.bg-slideshow {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+}
+
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+}
+
+.slide:nth-child(1) {background-image: url("image/image3.jpg");}
+.slide:nth-child(2) {background-image: url("image/image9.jpg");}
+.slide:nth-child(3) {background-image: url("image/image10.jpg");}
+
+.slide-maison:nth-child(1){
+    background-image: url("image/maison1.jpg"); 
+    height: 200px;
+}
+.slide-maison:nth-child(2){
+    background-image: url("image/maison2.jpg"); 
+    height: 200px;
+}
+.slide-maison:nth-child(3){
+    background-image: url("image/maison3.jpg"); 
+    height: 200px;
+}
+
+.slide-victime:nth-child(1){
+    background-image: url("image/victime1.jpg");
+    height: 200px;
+}
+.slide-victime:nth-child(2){
+    background-image: url("image/victime2.jpg");
+    height: 200px;
+}
+.slide-victime:nth-child(3){
+    background-image: url("image/victime3.jpg");
+    height: 200px;
+}
+.slide-victime:nth-child(4){
+    background-image: url("image/victime4.jpg");
+    height: 200px;
+}
+
+#maisons,
+#victimes {
+    position: relative;
+    height: 400px;
+    overflow: hidden;
+    transition: height 0.4s ease;
+}
+
+.slide-maison,
+.slide-victime {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 1.2s ease-in-out;
+}
+
+#maisons .texte,
+#victimes .texte {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    padding: 22px;
+    background: rgba(0,0,0,0.65);
+    color: white;
+    font-size: 0.9rem;
+    transform: translateY(0);
+    transition: transform 0.4s ease;
+}
+
+
+.active {
+    opacity: 1;
+}
+
+/* overlay foncé */
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.55);
+    z-index: 2;
+}
+
+/* Texte au-dessus */
+.hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+    text-align: center;
+    color: white;
+    padding: 20px;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+    text-shadow: 0 4px 15px rgba(0,0,0,0.9);
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-top: 10px;
+    text-shadow: 0 4px 15px rgba(0,0,0,0.8);
+}
+
+section #maisons{
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 1.1);
+    width: 49%;
+    padding: 5px 3px;
+    margin-left: 5px;
+    float: left;
+}
+
+#victimes{
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 1.1);
+    width: 49%;
+    padding: 5px 3px;
+    margin-left: 5px;
+    float: right;
+}
+
+/* =========================
+   FOOTER
+========================= */
+footer {
+    background-color: green;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 0.9rem;
+    margin-top: 120px; /* GRAND ESPACE AVANT LE FOOTER */
+}
+
+@media (max-width: 500px){
+    #section2{
+        margin: 0 6px;
+    }
+
+    section #maisons,
+    #victimes {
+        width: 100%;
+        height: 130vh;
+        margin: 0 3px 15px 3px;
+        box-shadow: none;
+        background-color: transparent;
+    }
+
+    #maisons a, #victimes a{
+        display: none;
+    }
+
+    section #maisons .texte, #victimes .texte{
+        top: 200px;
+        color: black;
+        background-color: transparent;
+    }
+}
